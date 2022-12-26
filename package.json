@@ -2,9 +2,10 @@
     "private": true,
     "sideEffects": false,
     "scripts": {
-        "build-css:postcss": "postcss styles --base styles --dir app/styles --env production",
-        "build": "remix build",
-        "dev:css": "postcss styles --base styles --dir app/styles -w",
+        "build:postcss": "postcss styles --base styles --dir app/styles --env production",
+        "build:remix": "remix build",
+        "build": "run-s build:*",
+        "css-server": "postcss styles --base styles --dir app/styles -w",
         "dev:remix": "remix watch",
         "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
         "dev": "remix build && run-p \"dev:*\"",

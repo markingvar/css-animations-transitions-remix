@@ -1,0 +1,71 @@
+:root {
+  --primary-color: rgb(255, 255, 255);
+  --foreground-color: black;
+  --duration: 1s;
+  --easing: cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+html {
+height: 100%;
+}
+
+body {
+  background: var(--primary-color);
+  /* color: var(--foreground-color, white); */
+  height: 100%;
+}
+
+.ball {
+  height: 5vmin;
+  width: 5vmin;
+  border-radius: 50%;
+  background: red;
+  /*  animation: slide-right var(--duration) var(--easing) infinite; */
+  /* transition-duration: .5s;
+  transition-property: background, transform;
+  transition-timing-function: var(--easing), ease-in-out; */
+    animation-name: move-like-a-square;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+    animation-iteration-count: 5;
+}
+
+.ball:hover {
+background: blue;
+transform: scale(1.5);
+transition-duration: var(--duration), 3s;
+  }
+
+@keyframes move-like-a-square {
+    0% {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(20vw);
+    }
+
+    50% {
+        transform: translateY(20vw) translateX(20vw);
+    } 
+
+    75% {
+        transform: translateY(20vw) translateX(0);
+    }
+
+    100% {
+        transform: none;
+    }
+
+}
+
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50vw);
+  }
+}
